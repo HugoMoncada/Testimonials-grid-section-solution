@@ -1,0 +1,175 @@
+:root{
+
+    --Moderate-violet: hsl(263, 55%, 52%);
+    --Very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --Very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --White: hsl(0, 0%, 100%); 
+    --Light-gray: hsl(0, 0%, 81%);
+    --Light-grayish-blue: hsl(210, 46%, 95%);
+
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+::selection {
+    color: none;
+    background: rgba(0, 0, 255, 0.1);
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    border-style: none;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+html, body{
+    font-size: 62.5%;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background-color: var(--Light-grayish-blue);
+}
+
+main{
+    width: 87%;
+    margin: 70px auto;
+    max-width: 1110px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+
+.card{
+    border-radius: 8px;
+    padding: 26px 30px 32px;
+}
+
+.card__header{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.card__figure{
+    width: 32px;
+}
+
+.card__img{
+    border-radius: 50%;
+    width: 100%;
+}
+
+.card__name{
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 2px;
+}
+
+.card__verified{
+    color: white;
+    opacity: .5;
+    font-size: 1.1rem;
+}
+
+.card__title{
+    font-size: 2rem;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 27px;
+}
+
+.card__text{
+    color: white;
+    opacity: .7;
+    font-size: 1.3rem;
+    line-height: 20px;
+}
+
+
+
+/* Decided to name cards from left to right instead of giving them names
+in case they are changed and different people appear in the cards. 
+The display is: 
+1 1 2 5 
+3 4 5 5
+*/
+
+
+#card-1{ 
+    background: var(--Moderate-violet) url("/images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: 90% 0;
+    grid-area: card-1;
+}
+
+#card-1 .card__img, #card-4 .card__img{
+    border: 2px solid #a775f1;
+}
+
+#card-2{ 
+    background: var(--Very-dark-grayish-blue);
+    grid-area: card-2;
+}
+
+#card-3{
+    grid-area: card-3;
+}
+
+#card-3, #card-5{ 
+    background: white;
+}
+
+#card-3 .card__name, #card-3 .card__verified, #card-3 .card__title, #card-3 .card__text{
+    color: var(--Very-dark-grayish-blue);
+} 
+
+
+#card-4{
+    background-color: var(--Very-dark-blackish-blue);
+    grid-area: card-4;
+}
+
+#card-5{
+    grid-area: card-5;
+}
+
+#card-5 .card__name, #card-5 .card__verified, #card-5 .card__title, #card-5 .card__text{
+    color: var(--Very-dark-grayish-blue);
+} 
+
+
+@media screen and (min-width:1000px){
+
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main{
+        display: grid;
+        margin: 0;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "card-1 card-1 card-2 card-5"
+                             "card-3 card-4 card-4 card-5";
+        gap: 32px;
+    }
+}
